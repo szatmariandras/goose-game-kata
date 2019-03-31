@@ -63,17 +63,17 @@ class Game(io: IO, dice: Dice) {
     if (nextPos == FINAL_SPACE) {
       (
         updatePlayerPosition(board, player, FINAL_SPACE),
-        List(s"${player} moves from ${Position(prevPos)} to 63. ${player} Wins!!")
+        List(s"${player} moves from ${Position(prevPos)} to $FINAL_SPACE. ${player} Wins!!")
       )
-    } else if (nextPos > 63) {
-      val finalPos = 63 - Math.abs(63 - nextPos)
+    } else if (nextPos > FINAL_SPACE) {
+      val finalPos = FINAL_SPACE - Math.abs(FINAL_SPACE - nextPos)
       movePlayer(
         board,
         player,
         prevPos,
         finalPos,
         List(
-          s"${player} moves from ${Position(prevPos)} to 63",
+          s"${player} moves from ${Position(prevPos)} to $FINAL_SPACE",
           s"${player} bounces! ${player} returns to ${Position(finalPos)}"
         )
       )
